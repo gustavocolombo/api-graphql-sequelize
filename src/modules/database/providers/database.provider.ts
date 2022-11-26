@@ -1,4 +1,5 @@
 import { Sequelize, SequelizeOptions } from 'sequelize-typescript';
+import { UsersEntity } from '../../users/infra/entities/users.entity';
 import { configDatabase } from './config';
 
 export const DatabaseProvider = [
@@ -13,7 +14,7 @@ export const DatabaseProvider = [
         password: configDatabase.password,
         database: configDatabase.database,
       } as SequelizeOptions);
-      sequelize.addModels([]);
+      sequelize.addModels([UsersEntity]);
       await sequelize.sync();
       return sequelize;
     },
