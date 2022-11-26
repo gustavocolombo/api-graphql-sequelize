@@ -15,11 +15,11 @@ export class CreateUserInput {
   password: string;
 
   @Field()
-  age: string;
+  age: number;
 
   @Field()
-  height: string;
+  height: number;
 
   @Field()
-  width: string;
+  width: number;
 }
