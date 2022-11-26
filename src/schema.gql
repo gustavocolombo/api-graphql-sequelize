@@ -2,6 +2,31 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type UsersEntity {
+  id: String!
+  firstname: String!
+  lastname: String!
+  email: String!
+  password: String!
+  age: Float!
+  height: Float!
+  width: Float!
+}
+
 type Query {
-  firstQuery: String!
+  queryUser(email: String!): UsersEntity!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): UsersEntity!
+}
+
+input CreateUserInput {
+  firstname: String!
+  lastname: String!
+  email: String
+  password: String!
+  age: Float!
+  height: Float!
+  width: Float!
 }

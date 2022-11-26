@@ -1,38 +1,72 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Model, Table, Column } from 'sequelize-typescript';
+import {
+  Model,
+  Table,
+  Column,
+  PrimaryKey,
+  DataType,
+  CreatedAt,
+  UpdatedAt,
+} from 'sequelize-typescript';
 
-@Table
+@Table({
+  tableName: 'users',
+  timestamps: true,
+})
 @ObjectType()
 export class UsersEntity extends Model {
-  @Column({ primaryKey: true })
+  @PrimaryKey
+  @Column({
+    type: DataType.UUID,
+  })
   @Field()
   id: string;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+  })
   @Field()
   firstname: string;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+  })
   @Field()
   lastname: string;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+  })
   @Field()
   email: string;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+  })
   @Field()
   password: string;
 
-  @Column
+  @Column({
+    type: DataType.FLOAT,
+  })
   @Field()
-  age: string;
+  age: number;
 
-  @Column
+  @Column({
+    type: DataType.FLOAT,
+  })
   @Field()
-  height: string;
+  height: number;
 
-  @Column
+  @Column({
+    type: DataType.FLOAT,
+  })
   @Field()
-  width: string;
+  width: number;
+
+  @CreatedAt
+  createdAt?: Date;
+
+  @UpdatedAt
+  updatedAt?: Date;
 }
